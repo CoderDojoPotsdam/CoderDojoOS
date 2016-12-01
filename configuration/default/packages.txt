@@ -1,0 +1,45 @@
+# This is a list of packages for the operating system.
+# They will be installed on the machine if the profile is chosen.
+
+####### programming languages #######
+# arduino
+arduino	
+
+# python
+idle
+idle3
+python
+python3
+python-pip
+python3-pip
+
+# java
+openjdk-7-jre
+openjdk-8-jre
+
+# scratch
+scratch
+
+# ruby
+ruby
+
+####### browsers #######
+# firefox
+firefox
+flashplugin-installer
+
+# chromium Webbrowser
+# https://wiki.ubuntuusers.de/Chromium/Installation
+chromium-browser 
+chromium-browser-l10n 
+chromium-codecs-ffmpeg-extra 
+
+####### editors #######
+vim
+inkscape
+gedit
+
+####### tools #######
+realpath
+curl
+htop
