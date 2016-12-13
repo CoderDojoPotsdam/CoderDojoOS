@@ -65,3 +65,31 @@ function use_case_file() {
 }
 
 use_case_file "configuration.sh"
+
+# Requirements
+# ============
+#
+# Some steps require commands and some steps require packages to be installed
+#
+# Make sure a command is available and exit if not
+function require_commands() {
+  unknown_commands=""
+  for command in "$@"
+  do
+    if ! which "$command" 2>>/dev/null 1>>/dev/null
+    then
+      unknown_commands="$command $unknown_commands"
+    fi
+  done
+  if [ -n "$unknown_commands" ]
+  then
+    echo "Commands not known: $unknown_commands"
+    echo "Exiting with error"
+    exit 1
+  fi
+}
+function require_command() {
+  require_commands "$@"
+}
+
+
