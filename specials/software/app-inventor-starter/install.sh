@@ -37,10 +37,10 @@ else
 fi
 
 # https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles
-cp "$here"/aiStarter.desktop /usr/share/applications
-cp "$here"/nolicense/google-app-inventor-icon.jpg \
+cp --update "$here"/aiStarter.desktop /usr/share/applications
+cp --update "$here"/nolicense/google-app-inventor-icon.jpg \
    '/usr/google/appinventor/commands-for-Appinventor/'
-cp "$here/start_ai_starter_coderdojoos.sh" "/usr/google/appinventor/commands-for-Appinventor/"
+cp --update "$here/start_ai_starter_coderdojoos.sh" "/usr/google/appinventor/commands-for-Appinventor/"
 
 # installing additional packages
 # SDL init failure, reason is: No available video device
