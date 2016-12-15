@@ -26,10 +26,10 @@ function confirm() {
       echo -n "[yes|No] "
     fi
     read answer
-    if [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "answer" == "Y" ] || [ "answer" == "Yes" ]
+    if [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "$answer" == "Y" ] || [ "$answer" == "Yes" ]
     then
       return 0
-    elif [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "answer" == "Y" ] || [ "answer" == "Yes" ]
+    elif [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "$answer" == "Y" ] || [ "$answer" == "Yes" ]
     then
       return 1
     fi
@@ -44,7 +44,7 @@ sudo apt-get -y install git
 if [ -d "$coderdojoos_root" ]
 then
   echo "Should I remove the previous installation?"
-  if confirm y
+  if confirm n
   then
    action_clone
   else
