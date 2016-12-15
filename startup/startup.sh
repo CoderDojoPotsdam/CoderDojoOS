@@ -20,13 +20,18 @@ echo "Logs go to $startup_log_files"
   echo "= git commit `git log --pretty=oneline -1`"
   echo
   steps_folder="$here/steps"
-  if [ -n "$@" ]
+  if [ -n "$1" ]
   then
     # Use arguments as steps
     steps="$@"
   else
     steps="`ls \"$steps_folder\"`"
   fi
+  echo "Executing steps"
+  for step in $steps
+  do
+    echo "- $step" 
+  done
   for step in $steps
   do
     echo -n "Step $step ..." >> "$status"
@@ -41,4 +46,6 @@ echo "Logs go to $startup_log_files"
     fi
   done
   echo "Done." >> "$status"
+  echo ""
+  echo "CoderDojoOS startup done."
 ) 2>&1 | tee "$current_output" | tee -a "$joined_output"

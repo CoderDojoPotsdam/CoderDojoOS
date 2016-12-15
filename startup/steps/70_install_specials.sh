@@ -23,5 +23,9 @@ do
     2>&1 echo "ERROR: There should be one: $install_sh_file"
     continue
   fi
+  echo "***************** installing special *****************"
+  echo "* name: $special"
+  echo "* location: $install_sh_file"
+  echo "*"
   "$install_sh_file"
 done
