@@ -1,5 +1,5 @@
 #!/bin/bash
-data > /tmp/test.now
+date > /tmp/test.now
 
 
 
