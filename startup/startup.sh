@@ -20,6 +20,12 @@ fi
 here="`dirname \"$0\"`"
 export coderdojoos_root="$here/.."
 export configuration="$coderdojoos_root/configuration/configuration.sh"
+_PATH="/root/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+if [ -z "$PATH" ]
+  export PATH="$_PATH"
+else
+  export PATH="$_PATH:$PATH"
+fi
 
 source "$configuration"
 use_case_file "startup.config"
