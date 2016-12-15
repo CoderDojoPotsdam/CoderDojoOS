@@ -43,7 +43,7 @@ sudo apt-get -y install git
 
 if [ -d "$coderdojoos_root" ]
 then
-  echo "Should I remove the previous installation?"
+  echo "Should I remove the previous installation at $coderdojoos_root?"
   if confirm n
   then
    action_clone
