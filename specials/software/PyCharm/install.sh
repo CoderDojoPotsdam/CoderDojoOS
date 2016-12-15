@@ -1,9 +1,13 @@
 #!/bin/bash
+#
+# For maintainers:
+# go to https://www.jetbrains.com/pycharm/download/download-thanks.html
+# to find the latest version
+pycharm_version="2016.3.1"
+
 
 cd "`dirname \"$0\"`"
-
 # all variables we need to configure the script
-pycharm_version="2016.1.4"
 pycharm_archive_url="https://download-cf.jetbrains.com/python/pycharm-community-$pycharm_version.tar.gz"
 pycharm_temp_folder="/tmp/pycharm"
 pycharm_archive="/tmp/pycharm-community-$pycharm_version.tar.gz"
