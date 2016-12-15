@@ -37,8 +37,10 @@ function confirm() {
   done
 }
 
+echo "---------------------- Installation -----------------------"
+
 echo "Installing git..."
-sudo apt-get -y install git
+sudo apt-get -y -qq install git
 
 
 if [ -d "$coderdojoos_root" ]
