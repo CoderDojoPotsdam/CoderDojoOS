@@ -1,0 +1,12 @@
+#
+# Specials to install
+# ===================
+#
+# Have a look at the folder names specials:
+# ../../specials
+#
+# There you can find descriptions what it is you can install.
+#
+# E.g. to install app-inventor-starter, you can remove the #
+#
+#    software/app-inventor-starter
