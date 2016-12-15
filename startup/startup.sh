@@ -19,14 +19,21 @@ echo "Logs go to $startup_log_files"
   echo "= date: `date`"
   echo "= git commit `git log --pretty=oneline -1`"
   echo
-  steps="$here/steps"
-  for step in `ls "$steps"`
+  steps_folder="$here/steps"
+  if [ -n "$@" ]
+  then
+    # Use arguments as steps
+    steps="$@"
+  else
+    steps="`ls \"$steps_folder\"`"
+  fi
+  for step in $steps
   do
     echo -n "Step $step ..." >> "$status"
     echo "+-----------------------------------------------------"
     echo "| Step: $step"
     echo "+"
-    if "$steps/$step" 2>&1 | tee "$startup_log_files/current_$step.log" | tee -a "$startup_log_files/all_$step.log"
+    if "$steps_folder/$step" 2>&1 | tee "$startup_log_files/current_$step.log" | tee -a "$startup_log_files/all_$step.log"
     then
       echo " ok" >> "$status"
     else
