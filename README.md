@@ -38,7 +38,7 @@ Read there on how to add a new dojo.
 
 So see if the CoderDojoOS is executed properly on startup, you can view the log files once you restarted:
 
-    cat /opt/coderdojoos/all.log
+    cat /opt/coderdojoos/status.log
 
 It should look something like this: 
 
