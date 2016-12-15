@@ -54,3 +54,7 @@ else
   action_clone
 fi
 
+(
+  cd "$coderdojoos_root"
+  ./install/install.sh
+)
