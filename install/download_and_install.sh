@@ -31,7 +31,7 @@ function confirm() {
     if [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "$answer" == "Y" ] || [ "$answer" == "Yes" ]
     then
       return 0
-    elif [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "$answer" == "Y" ] || [ "$answer" == "Yes" ]
+    elif [ "$answer" == "n" ] || [ "$answer" == "no" ] || [ "$answer" == "N" ] || [ "$answer" == "No" ]
     then
       return 1
     elif [ -z "$answer" ]

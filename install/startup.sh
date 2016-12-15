@@ -10,5 +10,5 @@ startup="`realpath \"$here/../startup/startup.sh\"`"
 
 (
   sudo crontab -l -u root 2>>/dev/null
-  echo "@reboot \"$startup.sh\""
+  echo "@reboot \"$startup\""
 ) | sudo crontab -u root -
