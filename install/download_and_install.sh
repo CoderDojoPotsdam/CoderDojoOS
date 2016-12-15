@@ -22,8 +22,10 @@ function confirm() {
     if [ "$1" == "y" ]
     then
       echo -n "[Yes|no] "
+      default=0
     else
       echo -n "[yes|No] "
+      default=1
     fi
     read answer
     if [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "$answer" == "Y" ] || [ "$answer" == "Yes" ]
@@ -32,6 +34,9 @@ function confirm() {
     elif [ "$answer" == "y" ] || [ "$answer" == "yes" ] || [ "$answer" == "Y" ] || [ "$answer" == "Yes" ]
     then
       return 1
+    elif [ -z "$answer" ]
+    then
+      return "$default"
     fi
     echo "Please answer either y or n or nothing to choose the capital letter and press enter."
   done
