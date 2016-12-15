@@ -2,3 +2,5 @@
 wcstools
 # for the command realpath
 realpath
+# for updates
+git
