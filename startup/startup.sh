@@ -40,7 +40,7 @@ echo "Logs go to $startup_log_files"
   echo "Starting up `date`" > "$status"
   echo "======================================================"
   echo "= date: `date`"
-  echo "= git commit `git log --pretty=oneline -1`"
+  echo "= git commit `( cd \"$coderdojoos_root\" ; git log --pretty=oneline -1 )`"
   echo
   steps_folder="$here/steps"
   if [ -n "$1" ]
