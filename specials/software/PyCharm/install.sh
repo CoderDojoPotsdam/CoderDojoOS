@@ -19,10 +19,11 @@ then
   apt-get -y -qq install realpath
 fi
 
+echo "install icon"
+cp --update ./jetbrains-pycharm-ce.desktop /usr/share/applications
+
 if [ -d "$pycharm_folder" ] && [ -f "$pycharm_version_file" ] && [ "`cat \"$pycharm_version_file\"`" == "$pycharm_version" ]
 then
-  echo "install icon"
-  cp --update ./jetbrains-pycharm-ce.desktop /usr/share/applications
   echo "Pycharm already installed."
   exit 0
 fi
