@@ -21,7 +21,7 @@ What is included?
 
 If you have setup an Ubuntu 16, you can open the command line and do
 
-    wget -O- https://raw.githubusercontent.com/CoderDojoPotsdam/CoderDojoOS/master/install/download_and_install.sh | /bin/bash
+    wget https://raw.githubusercontent.com/CoderDojoPotsdam/CoderDojoOS/master/install/download_and_install.sh ; /bin/bash download_and_install.sh
 
 This guides you through the installation process. And you are done.
 
