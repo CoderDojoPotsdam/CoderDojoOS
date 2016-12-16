@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "`dirname \"$0\"`"
+
 # only copy the installer if Scratch2 is not installed
 
 if [ ! -f '/opt/Scratch 2/bin/Scratch 2' ]
