@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Scratch 2 Installer
+Icon=scratch                     
+Exec=gksudo /opt/install_scratch_2.sh
+Type=Application
+Terminal=true
+Categories=Utility;
+Version=2.0
+Comment= Programming system and content development tool
