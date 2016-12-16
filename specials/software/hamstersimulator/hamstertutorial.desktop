@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Hamsterstutorial
+Comment=Das ist das Tutorial zum Hamstermodell.
+Exec=firefox http://freizeitkreis-bl.de/hamster/
+Icon=/opt/hamstermodell/hamstersimulator.gif
+Terminal=false
+Type=Application
+Categories=Application;Development;Game
+StartupNotify=true
+
+
+

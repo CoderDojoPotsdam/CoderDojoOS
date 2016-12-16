@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Hamstersimulator
+Comment=Das Hamster-Modell ist ein einfaches aber mächtiges didaktisches Modell, mit dessen Hilfe du Grundkonzepte der Programmierung auf spielerische Art und Weise erlernen kannst.
+Exec=/opt/hamstermodell/hamstersimulator.sh
+Icon=/opt/hamstermodell/hamstersimulator.gif
+Terminal=false
+Type=Application
+Categories=Application;Development;Game
+StartupNotify=true
+
+
+
