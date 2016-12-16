@@ -1,3 +1,5 @@
 
 software/app-inventor-starter
 software/PyCharm
+software/Scratch2Installer
+software/hamstersimulator
