@@ -19,7 +19,8 @@ coderdojoos_use_cases="$coderdojoos_root/use-cases.txt"
 coderdojoos_use_cases_default="$coderdojoos_root/use-cases-default.txt"
 # The directory where all use-cases can be found
 coderdojoos_use_cases_directory="$coderdojoos_root/use-cases"
-
+# The directory where the tools can be found
+tools="$coderdojoos_root/startup/tools"
 
 # Users and Roles
 # ---------------

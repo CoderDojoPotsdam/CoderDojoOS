@@ -16,7 +16,7 @@ else
   exit 1
 fi
 
-
+# set the environment variables
 here="`dirname \"$0\"`"
 export coderdojoos_root="$here/.."
 export configuration="$coderdojoos_root/configuration/configuration.sh"
@@ -34,6 +34,11 @@ use_case_file "startup.config"
 status="$startup_log_files/status.log"
 current_output="$startup_log_files/current.log"
 joined_output="$startup_log_files/all.log"
+
+function is_step() {
+  echo "$1" | grep -q -E '^\d\d_.*\.sh$'
+  return "$?"
+}
 
 echo "Logs go to $startup_log_files"
 
@@ -54,10 +59,17 @@ echo "Logs go to $startup_log_files"
   echo "Executing steps"
   for step in $steps
   do
-    echo "- $step" 
+    if is_step "$step"
+    then
+      echo "- $step"
+    fi
   done
   for step in $steps
   do
+    if ! is_step "$step"
+    then
+      continue
+    fi
     echo -n "Step $step ..." >> "$status"
     echo "+-----------------------------------------------------"
     echo "| Step: $step"

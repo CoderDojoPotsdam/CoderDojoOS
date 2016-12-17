@@ -4,3 +4,6 @@ wcstools
 realpath
 # for updates
 git
+# for startup/tools/send_email
+python3
+dmidecode

@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# This is a shortcut for installing packages.
+#
+
+command="$1"
+package="$2"
+
+if [ -z "package" ]
+then
+  # We assume package andcommand are the same since only the command is given
+  package="$command"
+fi
+
+if ! type "$command" 1>>/dev/null 2>>/dev/null
+then
+  apt-get -y -qq install "$package"
+fi

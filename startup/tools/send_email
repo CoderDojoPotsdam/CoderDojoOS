@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+#
+# Send an E-Mail
+# from https://docs.python.org/2/library/email-examples.html
+#
+import smtplib
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from urllib.parse import urlencode
+from cgi import escape as html_escape
+import sys
+
+SMTP_SERVER = sys.argv[1]
+SMTP_LOGIN = sys.argv[2]
+SMTP_PASSWORD = sys.argv[3]
+EMAIL_FROM = sys.argv[4]
+EMAIL_TO = sys.argv[5]
+EMAIL_SUBJECT = sys.argv[6]
+PROGRAM_DESCRIPTION = sys.argv[7]
+
+# Create the container (outer) email message.
+msg = MIMEMultipart()
+msg['Subject'] = EMAIL_SUBJECT
+msg['From'] = EMAIL_FROM
+msg['To'] = EMAIL_TO
+msg.preamble = PROGRAM_DESCRIPTION
+
+for text in sys.argv[8:]:
+    msg_text = MIMEText(text, 'plain')
+    msg.attach(msg_text)
+
+# Send the email via our own SMTP server.
+# with gmail, see
+#   https://www.nixtutor.com/linux/send-mail-through-gmail-with-python/
+s = smtplib.SMTP(SMTP_SERVER)
+s.starttls()
+s.login(SMTP_LOGIN, SMTP_PASSWORD)
+s.sendmail(EMAIL_FROM, EMAIL_TO, msg.as_string())
+s.quit()
+
