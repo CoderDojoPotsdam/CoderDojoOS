@@ -12,6 +12,7 @@ python
 python3
 python-pip
 python3-pip
+blender
 
 # java
 openjdk-7-jre
