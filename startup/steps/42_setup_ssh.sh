@@ -40,7 +40,7 @@ else
     if "$tools/send_email" "$smtp_server" "$smtp_login" "$smtp_password" \
                            "$email_from" "$send_public_keys_to_email" \
                            "$subject" "$email_program_description" \
-                           "`cat \"$ssh_public_key\"`" \
+                           "$description" "`cat \"$ssh_public_key\"`" \
                            "Here is more information about the computer:" \
                            "`dmidecode -t1`"
     then
@@ -49,6 +49,8 @@ else
     else
       echo "ERROR: could not send public key to \"$send_public_keys_to_email\"."
     fi
+  else
+    echo "$send_public_keys_to_email already received the public keys. Not sending them."
   fi
 fi
 

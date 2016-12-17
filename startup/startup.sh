@@ -36,7 +36,7 @@ current_output="$startup_log_files/current.log"
 joined_output="$startup_log_files/all.log"
 
 function is_step() {
-  echo "$1" | grep -q -E '^\d\d_.*\.sh$'
+  echo -n "$1" | grep -q -E '^[0-9]{2}_.*\.sh$'
   return "$?"
 }
 
