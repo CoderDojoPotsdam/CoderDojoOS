@@ -52,3 +52,7 @@ It should look something like this:
     Step 70_install_specials.sh ... ok
     Done.
 
+Related Work
+------------
+
+- https://github.com/mobluse/coderdojo-raspbian-sv
