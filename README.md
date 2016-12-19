@@ -18,7 +18,7 @@ What is included?
   - [issues for more packages](https://github.com/CoderDojoPotsdam/CoderDojoOS/issues?q=is%3Aopen+is%3Aissue+label%3Aspecial)
 - [Debian packages like scratch](use-cases/default/packages-to-install.txt)
 - [default homepage in browser](use-cases/default/homepage.config)
-- [clone and synchronize git repositories](use-cases/default/repositories.config)
+- [clone and synchronize git repositories](use-cases/default/repositories.config) like [projects](https://github.com/CoderDojoPotsdam/projects)
 
 ## Installation
 
