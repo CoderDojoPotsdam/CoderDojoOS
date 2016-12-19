@@ -42,6 +42,17 @@ else
   coderdojoos_use_cases="`cat \"$coderdojoos_use_cases_default"`"
 fi
 
+# This function find echos the user directories with the following names:
+# DESKTOP, DOWNLOAD, TEMPLATES, PUBLICSHARE,  DOCUMENTS, MUSIC, PICTURES, VIDEOS
+# The first argument is the user, the second argument is the name of the path.
+# Sources:
+# - getting the windows directory http://stackoverflow.com/a/4361421/1320237
+# - runnning as a different user http://www.cyberciti.biz/open-source/command-line-hacks/linux-run-command-as-different-user/
+function user-dir() {
+  su "$1" -c "echo \$(xdg-user-dir \"$2\")"
+}
+
+
 # This function loads the configuration from the use cases
 #
 # $1 - the file to find
