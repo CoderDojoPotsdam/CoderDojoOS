@@ -1,6 +1,10 @@
 #!/bin/bash
 
-source "$configuration.sh"
+source "$configuration"
+
+"$tools/install_package" realpath
+
+_ssh_git="`realpath \"$tools/ssh_git\"`"
 
 use_case_file "ssh.config"
 
@@ -9,7 +13,7 @@ _there_was_something="false"
 _git_location="`which git`"
 function _git() {
   export ssh_key="$ssh_key"
-  GIT_SSH="$tools/ssh_git" "$_git_location" "$@"
+  GIT_SSH="$_ssh_git" "$_git_location" "$@"
 }
 
 function _default() {
@@ -48,9 +52,10 @@ function _apply() {
   fi
   # Guard clauses end here
   _in_apply="true"
+  echo "Repository: $_remote"
   if [ -e "$_location" ]
   then
-    if ! [ -d "$_location" ]
+    if [ ! -d "$_location/.git" ]
     then
       echo "The location $_location has content, removing it."
       rm -rf "$_location"
@@ -84,8 +89,13 @@ function _apply() {
       _git commit -m "$_sync_message"
       _git push "$_remote"
     fi
-    echo "- own the repository by $_owner"
-    chown -R "$_owner" .
+    echo -n "- own the repository by $_owner ... "
+    if chown -R "$_owner" .
+    then
+      echo "ok"
+    else
+      echo "fail"
+    fi
   )
   _default
 }
@@ -115,7 +125,7 @@ function _choose_branch() {
 }
 
 function git() {
-  apply
+  _apply
   _there_was_something="true"
   _remote="$1"
 }
@@ -140,7 +150,7 @@ function sync() {
   _sync_message="$1"
 }
 
-default
+_default
 
 use_case_file "repositories.config"
 
