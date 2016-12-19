@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# from http://stackoverflow.com/a/9321723/1320237l
+
+ssh -i "$ssh_key" "$@"
