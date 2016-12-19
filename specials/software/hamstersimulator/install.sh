@@ -65,3 +65,21 @@ cp -u "`dirname $0`/hamstersimulator.sh" "$destination_path"
 
 cp -u "`dirname $0`/hamstersimulator.desktop" /usr/share/applications/
 cp -u "`dirname $0`/hamstertutorial.desktop" /usr/share/applications/
+
+echo "Adding users to edit hamstermodell"
+# from https://www.cyberciti.biz/faq/ubuntu-add-user-to-group/
+groupadd hamstermodell
+source "$configuration"
+
+function user() {
+  if [ -n "$1" ]
+  then
+    useradd -G hamstermodell "$1"
+  else
+    1>&2 echo "ERROR: no user given"
+  fi
+}
+function password() {}
+function groups() {}
+
+use_case_file "users.config"
