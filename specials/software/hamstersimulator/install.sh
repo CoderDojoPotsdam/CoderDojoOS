@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd "`dirname \"$0\"`"
+here="`dirname \"$0\"`"
 
 # This installs the Hamstermodell from the Website
 #    http://www.java-hamster-modell.de/simulator.html#download
@@ -61,10 +61,10 @@ then
 fi
 
 # create executable and icons
-cp -u "`dirname $0`/hamstersimulator.sh" "$destination_path"
+cp -u "$here/hamstersimulator.sh" "$destination_path"
 
-cp -u "`dirname $0`/hamstersimulator.desktop" /usr/share/applications/
-cp -u "`dirname $0`/hamstertutorial.desktop" /usr/share/applications/
+cp -u "$here/hamstersimulator.desktop" /usr/share/applications/
+cp -u "$here/hamstertutorial.desktop" /usr/share/applications/
 
 echo "Adding users to edit hamstermodell"
 # from https://www.cyberciti.biz/faq/ubuntu-add-user-to-group/
@@ -81,7 +81,11 @@ function user() {
     1>&2 echo "ERROR: no user given"
   fi
 }
-function password() {}
-function groups() {}
+function password() {
+  echo -n
+}
+function groups() {
+  echo -n
+}
 
 use_case_file "users.config"
