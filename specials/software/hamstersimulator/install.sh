@@ -69,6 +69,8 @@ cp -u "`dirname $0`/hamstertutorial.desktop" /usr/share/applications/
 echo "Adding users to edit hamstermodell"
 # from https://www.cyberciti.biz/faq/ubuntu-add-user-to-group/
 groupadd hamstermodell
+# from http://unix.stackexchange.com/questions/116070/granting-write-permissions-to-a-group-to-a-folder#116073
+chgrp -R hamstermodell "$destination_path"
 source "$configuration"
 
 function user() {
