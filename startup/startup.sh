@@ -19,7 +19,7 @@ fi
 # set the environment variables
 here="`dirname \"$0\"`"
 export coderdojoos_root="$here/.."
-export configuration="$coderdojoos_root/configuration/configuration.sh"
+export configuration="$here/configuration"
 _PATH="/root/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 if [ -z "$PATH" ]
 then
