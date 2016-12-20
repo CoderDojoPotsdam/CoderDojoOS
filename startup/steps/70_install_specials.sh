@@ -8,7 +8,7 @@ specials_folder="$here/../../specials"
 
 specials="`use_case_file specials-to-install.txt cat`"
 
-for special in $(echo "$specials" | grep -vE "^\s*#" | tr "\n" " ")
+for special in $(remove-comments "$specials")
 do
   special_location="$specials_folder/$special"
   if ! [ -d "$special_location" ]

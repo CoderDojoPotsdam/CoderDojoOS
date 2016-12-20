@@ -52,6 +52,13 @@ function user-dir() {
   su "$1" -c "echo \$(xdg-user-dir \"$2\")"
 }
 
+# This function removes the commented lines from a text.
+# $@ - the text
+# output: the lines without comments all with space instead of linebreaks
+function remove-comments() {
+  # http://askubuntu.com/questions/252734/apt-get-mass-install-packages-from-a-file#252735
+  echo "$@" | grep -vE "^\s*#" | tr "\n" " "
+}
 
 # This function loads the configuration from the use cases
 #
