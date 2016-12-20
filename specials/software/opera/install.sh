@@ -18,6 +18,8 @@ else
 
   apt-get -qq update
   apt-get -y -qq install libstdc++5
-  yes | apt-get -y -qq install opera-stable
+  apt-get -y -qq --download-only install opera-stable
+  # timeout the install command since opera asks questions although we agree
+  timeout 5m apt-get -y -qq install opera-stable
 
 fi
