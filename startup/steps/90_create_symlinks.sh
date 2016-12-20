@@ -4,16 +4,32 @@ source "$configuration"
 
 "$tools/install_package" realpath
 
+# The first parameter is the string to remove the slash from.
+function remove_last_slash() {
+  local string="$1"
+  # from http://stackoverflow.com/questions/17542892/how-to-get-the-last-character-of-a-string-in-a-shell#21635778
+  while [ "${string: -1}" == "/" ]
+  do
+    local string="${string:0:-1}"
+  done
+  if [ -z "$string" ]
+  then
+    echo "/"
+  else
+    echo "$string"
+  fi
+}
+
 function folder() {
-  current_target="$1"
+  current_target="`remove_last_slash \"$1\"`"
 }
 
 function file() {
-  current_target="$1"
+  current_target="`remove_last_slash \"$1\"`"
 }
 
 function link() {
-  link_name="$1"
+  link_name="`remove_last_slash \"$1\"`"
   if [ -z "$current_target" ]
   then
     1>&2 echo "ERROR: first use path, then link!"
