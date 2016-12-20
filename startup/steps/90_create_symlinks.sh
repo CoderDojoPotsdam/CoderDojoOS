@@ -51,7 +51,7 @@ function link() {
   then
     # if the file or directory exists and is not a symbolic link
     # we copy it to the target
-    cp -rf "$link_name" "$current_target"
+    cp -T -rf "$link_name" "$current_target"
     rm -rf "$link_name"
   fi
   if ln -s -T "$current_target" "$link_name"
