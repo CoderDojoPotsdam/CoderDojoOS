@@ -1,0 +1,44 @@
+# Offline Server Modules
+# ======================
+#
+# The offline server is located here:
+#   https://github.com/cdpoffline/offline-material
+# It allows installation of services which usually are only available online.
+# For a full list of services, please view the 'modules' folder:
+#   https://github.com/cdpoffline/offline-material/tree/master/modules
+# Here is a list of of some of the modules:
+#
+# - App Inventor Server
+#     Website: http://ai2.appinventor.mit.edu/
+#     If you want to program App Inventor without access to the internet.
+#     To activate the module, remove the # from the following line:
+#       appinventor
+#
+# - Blockly
+#     Website:
+#     Programming for beginners in several languages.
+#     To activate the module, remove the # from the following line:
+#       blockly-games
+#
+# - codecombat
+#     Website:
+#     Learn to program by guiding a hero through a dungeon.
+#     To activate the module, remove the # from the following line:
+#       codecombat
+#
+#
+#
+# If you like to see more names, you shoud look here:
+#   https://github.com/cdpoffline/offline-material/tree/master/modules
+#
+#
+#
+# - http-server
+#     If you want to start an http server and allow serving the
+#     offline-server packages via a website.
+#
+# - overview
+#     This should be the last module you activate.
+#     It creates an overview site of all activated modules.
+#
+s
