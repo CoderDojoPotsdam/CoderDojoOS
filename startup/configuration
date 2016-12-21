@@ -28,20 +28,6 @@ tools="$coderdojoos_root/startup/tools"
 # The user group for all users with write access to the coderdojo os
 coderdojoos_group="coderdojoos"
 
-# Configuration for Use Cases
-# ---------------------------
-#
-# To enable a fast configuration for special use cases,
-# the configuration of these is loaded at the end.
-#
-# The list of all use cases
-if [ -f "$coderdojoos_use_cases" ]
-then
-  coderdojoos_use_cases="`cat \"$coderdojoos_use_cases"`"
-else
-  coderdojoos_use_cases="`cat \"$coderdojoos_use_cases_default"`"
-fi
-
 # This function find echos the user directories with the following names:
 # DESKTOP, DOWNLOAD, TEMPLATES, PUBLICSHARE,  DOCUMENTS, MUSIC, PICTURES, VIDEOS
 # The first argument is the user, the second argument is the name of the path.
@@ -60,6 +46,21 @@ function remove-comments() {
   echo "$@" | grep -vE "^\s*#" | tr "\n" " "
 }
 
+# Configuration for Use Cases
+# ---------------------------
+#
+# To enable a fast configuration for special use cases,
+# the configuration of these is loaded at the end.
+#
+# The list of all use cases
+if [ -f "$coderdojoos_use_cases" ]
+then
+  coderdojoos_use_cases="`cat \"$coderdojoos_use_cases"`"
+else
+  coderdojoos_use_cases="`cat \"$coderdojoos_use_cases_default"`"
+fi
+coderdojoos_use_cases="`remove-comments \"$coderdojoos_use_cases\"`"
+
 # This function loads the configuration from the use cases
 #
 # $1 - the file to find
@@ -70,7 +71,7 @@ function use_case_file() {
   then
     action="source"
   fi
-  for use_case in default $coderdojoos_use_cases
+  for use_case in default $coderdojoos_use_cases local
   do
     file="$coderdojoos_use_cases_directory/$use_case/$1"
     if [ -f "$file" ]
