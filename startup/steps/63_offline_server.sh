@@ -13,7 +13,7 @@ then
   exit 0
 fi
 
-if [ -d "$offline_server_root/.git" ]
+if ! [ -d "$offline_server_root/.git" ]
 then
   mkdir -p "$offline_server_root"
   git clone "$offline_server_git_https" "$offline_server_root"
