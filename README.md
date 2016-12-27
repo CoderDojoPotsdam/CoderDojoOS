@@ -26,6 +26,11 @@ If you have setup an Ubuntu 16, you can open the command line and do
 
     wget https://raw.githubusercontent.com/CoderDojoPotsdam/CoderDojoOS/master/install/download_and_install.sh ; /bin/bash download_and_install.sh
 
+or 
+
+    wget https://git.io/vMUuI ; /bin/bash vMUuI
+
+
 This guides you through the installation process. And you are done.
 
 ## Configure a new Dojo
