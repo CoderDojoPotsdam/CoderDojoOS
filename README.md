@@ -61,6 +61,7 @@ It should look something like this:
 Related Work
 ------------
 
+- A customized live cd: https://github.com/CodersOS/
 - Something like to CoderDojoOS: https://github.com/mobluse/coderdojo-raspbian-sv
 - Raspbian on a USB-Stick: https://www.raspberrypi.org/blog/pixel-pc-mac/
 - OpenTechSchool Leptop Setup: https://github.com/vonneudeck/ots-laptop-setup
