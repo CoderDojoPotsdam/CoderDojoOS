@@ -73,19 +73,31 @@ groupadd hamstermodell
 chgrp -R hamstermodell "$destination_path"
 source "$configuration"
 
-function user() {
-  if [ -n "$1" ]
-  then
-    useradd -G hamstermodell "$1"
-  else
-    1>&2 echo "ERROR: no user given"
-  fi
-}
-function password() {
-  echo -n
-}
-function groups() {
-  echo -n
-}
+(
+  echo "Trying CoderDojoOS users"
+  function user() {
+    if [ -n "$1" ]
+    then
+      useradd -G hamstermodell "$1"
+    else
+      1>&2 echo "ERROR: no user given"
+    fi
+  }
+  function password() {
+    echo -n
+  }
+  function groups() {
+    echo -n
+  }
 
-use_case_file "users.config"
+  use_case_file "users.config" || {
+    1>&2 echo "Could not add CoderDojoOS users."
+  }
+)
+(
+  cd "/home"
+  for user in *; do
+    useradd -G hamstermodell "$user"
+  done
+)
+exit 0
