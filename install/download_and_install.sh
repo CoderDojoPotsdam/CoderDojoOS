@@ -48,7 +48,7 @@ echo "Installing git..."
 sudo apt-get -y -qq install git
 
 
-if [ -d "$coderdojoos_root" ]
+if [ -d "$coderdojoos_root/.git" ]
 then
   echo "Should I remove the previous installation at $coderdojoos_root?"
   if confirm n
