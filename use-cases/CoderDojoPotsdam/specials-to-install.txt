@@ -5,3 +5,4 @@ software/Scratch2Installer
 software/hamstersimulator
 software/google-chrome
 software/opera
+software/intro
