@@ -22,7 +22,7 @@ function update_repo() {
       echo "Pulled successfully."
     else
       echo "Error, could not pull. Invalid directory. Cleaning up and retrying."
-      rm -rf * .git
+      rm -rf * .*
       git clone "https://github.com/CoderDojoPotsdam/intro" .
     fi
     if ! [ -d ".git" ]; then
