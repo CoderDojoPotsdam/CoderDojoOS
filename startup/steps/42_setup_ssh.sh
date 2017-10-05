@@ -4,7 +4,7 @@ source "$configuration"
 
 use_case_file "ssh.config"
 
-for file in "$ssh_key" "$ssh_public_key"
+for file in "$ssh_key" "$ssh_public_key" "$ssh_known_hosts_file"
 do
   folder="`dirname \"$file\"`"
   if ! [ -d "$folder" ]
@@ -54,12 +54,13 @@ else
   fi
 fi
 
-echo "Adding known hosts to the file $known_hosts_file"
+echo "Adding known hosts to the file $ssh_known_hosts_file"
+touch "$ssh_known_hosts_file"
 (
-  cat "$known_hosts_file"
-  for host in $ssh_known_hosts
+  cat "$ssh_known_hosts_file"
+  for host in $ssh_known_hosts_file
   do
     echo "Adding host $host" 1>&2
     ssh-keyscan -t rsa "$host"
   done
-) | sort -u > "$known_hosts_file"
+) | sort -u > "$ssh_known_hosts_file"
