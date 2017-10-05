@@ -19,12 +19,17 @@ function update_repo() {
     set -e
     mkdir -p "$dir"
     cd "$dir"
-    if git pull; then
+    if [ -d ".git" ] && git pull; then
       echo "Pulled successfully."
     else
       echo "Error, could not pull. Invalid directory. Cleaning up and retrying."
       rm -rf * .git
       git clone "https://github.com/CoderDojoPotsdam/intro" .
+    fi
+    if ! [ -d ".git" ]; then
+      echo "Could not create a git repository in $dir"
+      # This check is necessary so we do not corrupt this coderdojoos repository
+      return 1
     fi
     git stash
     git checkout "$branch"
