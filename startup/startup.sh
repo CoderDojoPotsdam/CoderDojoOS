@@ -28,6 +28,11 @@ else
   export PATH="$_PATH:$PATH"
 fi
 
+# we should export this to prevent packages from asking us questions
+#    https://wiki.debian.org/Multistrap/Environment
+export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
+export LC_ALL=C LANGUAGE=C LANG=C
+
 source "$configuration"
 use_case_file "startup.config"
 
