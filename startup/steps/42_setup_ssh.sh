@@ -58,7 +58,7 @@ echo "Adding known hosts to the file $ssh_known_hosts_file"
 touch "$ssh_known_hosts_file"
 (
   cat "$ssh_known_hosts_file"
-  for host in $ssh_known_hosts_file
+  for host in $ssh_known_hosts
   do
     echo "Adding host $host" 1>&2
     ssh-keyscan -t rsa "$host"
