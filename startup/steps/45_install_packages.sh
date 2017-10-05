@@ -5,6 +5,8 @@ packages="`use_case_file \"packages-to-install.txt\" \"cat\"`"
 
 # we assume super user previleges
 
+apt-get update
+
 for package in $(remove-comments "$packages")
 do
   # http://askubuntu.com/questions/252734/apt-get-mass-install-packages-from-a-file#252735
