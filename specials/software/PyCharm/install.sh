@@ -3,7 +3,7 @@
 # For maintainers:
 # go to https://www.jetbrains.com/pycharm/download/download-thanks.html
 # to find the latest version
-pycharm_version="2016.3.1"
+pycharm_version="2017.2.3"
 
 
 cd "`dirname \"$0\"`"
@@ -56,4 +56,3 @@ mv "$pycharm_temp_folder"/* "$pycharm_folder"
 
 # set the version
 echo -n "$pycharm_version" > "$pycharm_version_file"
-
