@@ -4,9 +4,7 @@ set -e
 
 cd "`dirname \"$0\"`"
 
-offline_build_dir="offline-build" # must be relative
-server_dir="server"
-log_file="server.log"
+source config
 
 echo "Install the required packages."
 apt-get -y install python3 git python3-pip realpath
@@ -75,7 +73,10 @@ echo "install server desktop file"
   fi
   source ENV/bin/activate
   pip install --upgrade -r requirements.txt
-  echo "Start the server"
-  export OFFLINE_BUILD_DIRECTORY="../$offline_build_dir"
-  ( python3 -m intro_offline_server 1>>"../$log_file" 2>>"../$log_file" ) &
 )
+
+sleep 1 # wait for a running server to restart
+if ! wget -O /dev/null http://localhost:25444/ 2>/dev/null
+then
+  ./run_offline.sh
+fi

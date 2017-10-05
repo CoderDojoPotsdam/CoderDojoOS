@@ -1,0 +1,4 @@
+# all paths must be relative to the config file
+offline_build_dir="offline-build"
+server_dir="server"
+log_file="server.log"
