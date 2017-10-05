@@ -77,4 +77,5 @@ echo "install server desktop file"
   echo "Start the server"
   export OFFLINE_BUILD_DIRECTORY="../$offline_build_dir"
   python3 -m intro_offline_server &
+  sleep 2 # Wait for the server to start
 )
