@@ -10,36 +10,36 @@ server_dir="server"
 echo "Install the required packages."
 apt-get -y install python3 git python3-pip realpath
 
-echo "Update or clone the server"
-mkdir -p "$server_dir"
-(
-  set -e
-  cd "$server_dir"
-  git pull || (
+function update_repo() {
+  local dir="$1"
+  local branch="$2"
+  local remote="$3"
+  (
+    echo "Update $dir from branch $branch from remote $remote"
     set -e
-    rm -rf * .git
-    git clone --branch server --depth 1 "https://github.com/CoderDojoPotsdam/intro" .
+    mkdir -p "$dir"
+    cd "$dir"
+    if git pull; then
+      echo "Pulled successfully."
+    else
+      echo "Error, could not pull. Invalid directory. Cleaning up and retrying."
+      rm -rf * .git
+      git clone "https://github.com/CoderDojoPotsdam/intro" .
+    fi
+    git stash
+    git checkout "$branch"
+    chmod a+r -R .
   )
-)
+}
 
-echo "Update or clone the offline build"
-mkdir -p "$offline_build_dir"
-(
-  set -e
-  cd "$offline_build_dir"
-  git pull || (
-    set -e
-    rm -rf * .git
-    git clone --branch offline-build --depth 1 "https://github.com/CoderDojoPotsdam/intro" .
-  )
-  chmod a+r -R .
-)
+update_repo "$server_dir" "server" "https://github.com/CoderDojoPotsdam/intro.git"
+update_repo "$offline_build_dir" "offline-build" "https://github.com/CoderDojoPotsdam/intro.git"
 
 echo "install local desktop file"
 (
   echo "[Desktop Entry]"
   echo "Name=Offline Material"
-  echo "Exec=firefox `realpath \"$offline_build_dir\"`"
+  echo "Exec=firefox `realpath \"$offline_build_dir\"`/index.html"
   echo "Terminal=false"
   echo "Type=Application"
   echo "Icon=firefox"
@@ -73,4 +73,3 @@ echo "install server desktop file"
   export OFFLINE_BUILD_DIRECTORY="../$offline_build_dir"
   python3 -m intro_offline_server &
 )
-
