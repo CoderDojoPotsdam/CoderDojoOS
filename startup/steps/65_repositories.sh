@@ -13,7 +13,10 @@ _there_was_something="false"
 _git_location="`which git`"
 function _git() {
   export ssh_key="$ssh_key"
-  echo "ssh_key=$ssh_key fingerprint: `ssh-keygen -E md5 -lf \"$ssh_key\"`"
+  # get fingerprint to allow checks for the right key
+  # from https://stackoverflow.com/a/9607373
+  fingerpeint="`ssh-keygen -E md5 -lf \"$ssh_key\" 2>/dev/null || ssh-keygen -lf \"$ssh_key\"`"
+  echo "ssh_key=$ssh_key fingerprint: $fingerprint"
   echo "GIT_SSH=\"$_ssh_git\" \"$_git_location\" \"$@\""
   GIT_SSH="$_ssh_git" "$_git_location" "$@"
 }
