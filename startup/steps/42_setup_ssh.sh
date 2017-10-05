@@ -54,4 +54,12 @@ else
   fi
 fi
 
-
+echo "Adding known hosts to the file $known_hosts_file"
+(
+  cat "$known_hosts_file"
+  for host in $ssh_known_hosts
+  do
+    echo "Adding host $host" 1>&2
+    ssh-keyscan -t rsa "$host"
+  done
+) | sort -u > "$known_hosts_file"
