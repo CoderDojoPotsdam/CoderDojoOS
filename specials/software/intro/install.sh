@@ -50,6 +50,7 @@ echo "install local desktop file"
   echo "Categories=Development;"
   echo "StartupNotify=true"
 ) > /usr/share/applications/CoderDojoOS-intro.desktop
+chmod +x /usr/share/applications/CoderDojoOS-intro.desktop
 
 echo "install server desktop file"
 (
@@ -62,6 +63,7 @@ echo "install server desktop file"
   echo "Categories=Development;"
   echo "StartupNotify=true"
 ) > /usr/share/applications/CoderDojoOS-intro-server.desktop
+chmod +x /usr/share/applications/CoderDojoOS-intro-server.desktop
 
 (
   set -e
