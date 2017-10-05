@@ -13,6 +13,8 @@ _there_was_something="false"
 _git_location="`which git`"
 function _git() {
   export ssh_key="$ssh_key"
+  echo "ssh_key=$ssh_key fingerprint: `ssh-keygen -E md5 -lf \"$ssh_key\"`"
+  echo "GIT_SSH=\"$_ssh_git\" \"$_git_location\" \"$@\""
   GIT_SSH="$_ssh_git" "$_git_location" "$@"
 }
 
