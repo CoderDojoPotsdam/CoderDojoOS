@@ -5,7 +5,10 @@ packages="`use_case_file \"packages-to-install.txt\" \"cat\"`"
 
 # we assume super user previleges
 
+# update sources
 apt-get update
+
+fix_apt
 
 for package in $(remove-comments "$packages")
 do
@@ -13,5 +16,6 @@ do
   apt-get -y -qq install $package
 done
 
-apt-get -y -f install
-sudo apt-get -y -qq upgrade
+fix_apt
+
+apt-get -y -qq upgrade

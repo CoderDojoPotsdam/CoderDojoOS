@@ -8,6 +8,8 @@ specials_folder="$here/../../specials"
 
 specials="`use_case_file specials-to-install.txt cat`"
 
+fix_apt
+
 for special in $(remove-comments "$specials")
 do
   special_location="$specials_folder/$special"
@@ -23,9 +25,11 @@ do
     2>&1 echo "ERROR: There should be one: $install_sh_file"
     continue
   fi
+  echo
   echo "***************** installing special *****************"
   echo "* name: $special"
   echo "* location: $install_sh_file"
   echo "*"
   "$install_sh_file"
+  fix_apt
 done

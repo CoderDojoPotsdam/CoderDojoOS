@@ -112,4 +112,19 @@ function require_command() {
   require_commands "$@"
 }
 
-
+# package repository
+# ==================
+#
+# Sometimes installations fail and we need to fix the broken apt system.
+#
+# This command fixes the state of apt.
+function fix_apt() {
+  echo "*"
+  echo "* Configuration command: fix_apt trying to fix apt installation"
+  echo "*"
+  # incomplete install
+  dpkg --configure -a
+  # broken installation
+  apt-get -y -f install
+  return 0
+}
