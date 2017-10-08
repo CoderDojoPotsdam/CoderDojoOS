@@ -44,3 +44,8 @@ gedit
 realpath
 curl
 htop
+
+####### games #######
+tuxtype
+extremetuxracer
+moonbuggy
