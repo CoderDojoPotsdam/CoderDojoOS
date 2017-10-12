@@ -44,6 +44,7 @@ gedit
 realpath
 curl
 htop
+mercurial
 
 ####### games #######
 tuxtype
