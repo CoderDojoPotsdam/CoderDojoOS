@@ -49,4 +49,4 @@ mercurial
 ####### games #######
 tuxtype
 extremetuxracer
-moonbuggy
+moon-buggy
