@@ -13,9 +13,10 @@ fix_apt
 for package in $(remove-comments "$packages")
 do
   # http://askubuntu.com/questions/252734/apt-get-mass-install-packages-from-a-file#252735
-  apt-get -y -qq install $package
+  apt-get -y -q install $package
 done
 
 fix_apt
 
-apt-get -y -qq upgrade
+apt-get -y -q upgrade
+apt-get -y -q autoremove
