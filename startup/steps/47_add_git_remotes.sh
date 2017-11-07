@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# This adds git remotes to the CoderDojoOS repository.
+#
 
 source "$configuration"
 use_case_file "git-remotes.config"
