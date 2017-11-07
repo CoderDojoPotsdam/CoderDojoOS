@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# This adds an ssh key and sends it to a specified email.
+#
 
 source "$configuration"
 
