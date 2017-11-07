@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Update all git repositories.
+#
 
 source "$configuration"
 require_command "filename" "git"
