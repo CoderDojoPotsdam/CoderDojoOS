@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Run the specials in the specials folder which also
+# run of the computer is offline.
+#
 
 source "$configuration"
 
