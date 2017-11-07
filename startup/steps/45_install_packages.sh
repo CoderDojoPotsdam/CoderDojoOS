@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# Install the system packages.
+#
 
 source "$configuration"
 packages="`use_case_file \"packages-to-install.txt\" \"cat\"`"
