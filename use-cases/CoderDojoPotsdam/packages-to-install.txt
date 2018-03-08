@@ -23,6 +23,7 @@ scratch
 
 # ruby
 ruby
+sonic-pi
 
 ####### browsers #######
 # firefox
