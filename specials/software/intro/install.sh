@@ -7,7 +7,10 @@ cd "`dirname \"$0\"`"
 source config
 
 echo "Install the required packages."
-apt-get -y install python3 git python3-pip realpath
+if ! type realpath > /dev/null; then
+  apt-get install realpath
+fi
+apt-get -y install python3 git python3-pip
 
 function update_repo() {
   local dir="$1"
