@@ -51,3 +51,6 @@ mercurial
 tuxtype
 extremetuxracer
 moon-buggy
+
+####### internet sharing #######
+squid
