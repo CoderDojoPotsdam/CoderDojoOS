@@ -45,6 +45,7 @@ function confirm() {
 echo "---------------------- Installation -----------------------"
 
 echo "Installing git..."
+sudo apt-get update
 sudo apt-get -y -qq install git
 
 
