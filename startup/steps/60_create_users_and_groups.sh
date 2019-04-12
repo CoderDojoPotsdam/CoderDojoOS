@@ -46,6 +46,20 @@ function groups() {
   done
 }
 
+#
+# Create an autologin information for a user
+#
+function autologin() {
+  local user="$1"
+  mkdir -p '/usr/share/lightdm/lightdm.conf.d'
+  # from https://ubuntu-mate.community/t/auto-login-to-the-desktop/60
+  (
+    echo "[SeatDefaults]"
+    echo "greeter-session=lightdm-gtk-greeter"
+    echo "autologin-user=$user"
+  ) > '/usr/share/lightdm/lightdm.conf.d/60-autologin.conf'
+}
+
 use_case_file "users.config"
 
 error_if_no_password
