@@ -41,8 +41,12 @@ function groups() {
   do
     groupadd -f "$group"
     # from https://www.cyberciti.biz/faq/howto-linux-add-user-to-group/
-    useradd -G "$group" "$_current_user"
-    echo "Added $_current_user to group $group."
+    # changed useradd to usermod because that works
+    if usermod -aG "$group" "$_current_user"; then
+      echo "Added $_current_user to group $group."
+    else
+      echo "ERROR adding $_current_user to group $group."
+    fi
   done
 }
 
