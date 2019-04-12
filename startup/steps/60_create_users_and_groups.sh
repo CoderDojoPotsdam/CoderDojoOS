@@ -5,6 +5,8 @@
 
 source "$configuration"
 
+default_shell="/bin/bash"
+
 _password_is_set=true
 function error_if_no_password() {
   if [ -z "_password_is_set" ]
@@ -18,6 +20,10 @@ function user() {
   _current_user="$1"
   _password_is_set=
   useradd -m -d "/home/$_current_user" "$_current_user"
+  if grep -q "$default_shell" /etc/shells; then
+    chsh -s "/bin/bash" "$_current_user"
+    echo "Set default shell of $_current_user to \"$default_shell\"."
+  fi
 }
 
 function password() {
